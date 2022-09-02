@@ -1,0 +1,19 @@
+{
+  "name": "rest-api-consumption-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isaaknico/rest-api-consumption-practice-js.git"
+  },
+  "author": "@isaaknico",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/isaaknico/rest-api-consumption-practice-js/issues"
+  },
+  "homepage": "https://github.com/isaaknico/rest-api-consumption-practice-js#readme"
+}
