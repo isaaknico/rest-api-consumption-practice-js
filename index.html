@@ -4,12 +4,141 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Movies Web</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
     <link rel="stylesheet" href="./styles/app.css">
 </head>
 <body>
-    <h1>Movies Web</h1>
+    <header id="header" class="header">
+        <div class="header__nav">
+            <a href="" class="header__logo">
+                <span class="material-symbols-outlined material-symbols-outlined--header">movie_filter</span>
+                <span>WebMovies</span>
+            </a>
+            <div class="header__icon header__icon--user">
+                <img src="https://picsum.photos/30" alt="">
+            </div>
+        </div>
+        
+        <form id="searchForm" class="header__search">
+            <div class="search__container">
+                <span class="material-symbols-outlined">search</span>
+                <input class="search__input" type="text" placeholder="Search">
+                <button class="search__btn">
+                    <span class="material-symbols-outlined">
+                        mic
+                    </span>
+                </button>
+            </div>
+        </form>
+    </header>
 
+    <section id="" class="">
+        <div class="hero__img">
+            <div class="hero__text">
+                <h3 class="">Fall</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem illo commodi laboriosam, vero iusto...</p>
+                <button>Go</button>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section__header">
+            <h2 class="">Trending</h2>
+            <button>
+                <span class="material-symbols-outlined">
+                    arrow_forward_ios
+                </span>
+            </button>
+        </div>
+
+        <div>
+            <article class="movie-container">
+                <img 
+                    src="https://www.themoviedb.org/t/p/w220_and_h330_face/v28T5F1IygM8vXWZIycfNEm3xcL.jpg"
+                    class="movie__img"
+                    alt="title movie"
+                />
+            </article>
+            <article class="movie-container">
+                <img 
+                    src="https://www.themoviedb.org/t/p/w220_and_h330_face/v28T5F1IygM8vXWZIycfNEm3xcL.jpg"
+                    class="movie__img"
+                    alt="title movie"
+                />
+            </article>
+            <article class="movie-container">
+                <img 
+                    src="https://www.themoviedb.org/t/p/w220_and_h330_face/v28T5F1IygM8vXWZIycfNEm3xcL.jpg"
+                    class="movie__img"
+                    alt="title movie"
+                />
+            </article>
+        </div>
+    </section>
+
+    <section>
+        <div class="section__header">
+            <h2>Categories</h2>
+            <button>
+                <span class="material-symbols-outlined">
+                    arrow_forward_ios
+                </span>
+            </button>
+        </div>
+
+        <div>
+            <ol>
+                <li>
+                    <a href="">Action</a>
+                </li>
+                <li>
+                    <a href="">Comedy</a>
+                </li>
+                <li>
+                    <a href="">Drama</a>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- falta lista generica para busqueda o categorias -->
+    <section>
+        <article class="movie-container">
+            <img 
+                src="https://www.themoviedb.org/t/p/w220_and_h330_face/v28T5F1IygM8vXWZIycfNEm3xcL.jpg"
+                class="movie__img"
+                alt="title movie"
+            />
+        </article>
+        <article class="movie-container">
+            <img 
+                src="https://www.themoviedb.org/t/p/w220_and_h330_face/v28T5F1IygM8vXWZIycfNEm3xcL.jpg"
+                class="movie__img"
+                alt="title movie"
+            />
+        </article>
+        <article class="movie-container">
+            <img 
+                src="https://www.themoviedb.org/t/p/w220_and_h330_face/v28T5F1IygM8vXWZIycfNEm3xcL.jpg"
+                class="movie__img"
+                alt="title movie"
+            />
+        </article>
+
+    </section>
+
+    <footer class="footer">
+        <p>Made with love by Isaak Nico</p>
+    </footer>
     <script src="./src/secrets.js"></script>
     <script src="./src/main.js"></script>
 </body>
