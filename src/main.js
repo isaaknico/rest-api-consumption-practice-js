@@ -52,6 +52,3 @@ async function getCategoriesMoviesHome () {
         carousel.appendChild(carouselItem);
     })
 }
-
-getTrendingMoviesHome();
-getCategoriesMoviesHome();
