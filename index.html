@@ -15,105 +15,138 @@
 </head>
 <body>
     <header id="header" class="header">
-        <div class="header__arrow inactive">
-            <span class="material-symbols-outlined material-symbols-outlined--semibold">
-                arrow_back
-            </span>
-        </div>
-        <div class="header__nav ">
+        <div class="header__container">
+            <div class="header__arrow inactive">
+                <span class="material-symbols-outlined material-symbols-outlined--semibold">
+                    arrow_back
+                </span>
+            </div>
+            
             <a href="" class="header__logo">
                 <span class="material-symbols-outlined material-symbols-outlined--semibold  material-symbols-outlined--primary">movie_filter</span>
                 <span>WebMovies</span>
             </a>
+            
             <div class="header__icon header__icon--user">
                 <img src="https://picsum.photos/30" alt="">
             </div>
+            
+            <form id="searchForm" class="header__searchForm ">
+                <div class="search__container">
+                    <span class="material-symbols-outlined">search</span>
+                    <input class="search__input" type="text" placeholder="Search">
+                    <button class="search__btn">
+                        <span class="material-symbols-outlined">
+                            mic
+                        </span>
+                    </button>
+                </div>
+            </form>
         </div>
-        
-        <form id="searchForm" class="header__search ">
-            <div class="search__container">
-                <span class="material-symbols-outlined">search</span>
-                <input class="search__input" type="text" placeholder="Search">
-                <button class="search__btn">
-                    <span class="material-symbols-outlined">
-                        mic
-                    </span>
-                </button>
-            </div>
-        </form>
     </header>
 
-    <section class="">
-        <div class="hero__img">
-            <div class="hero__text">
-                <h2 class="hero__title">Fall</h2>
-                <p class="hero__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem illo  vero iusto...</p>
-                <button class="hero__btn">See more</button>
-            </div>
+    <section id="heroHome" class="hero">
+        <div class="hero__img"></div>
+        <div class="hero__content">
+            <h2 class="hero__title">Fall</h2>
+            <p class="hero__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem illo  vero iusto...</p>
+            <button class="hero__btn">See more</button>
         </div>
     </section>
 
-    <section id="trendingMovies" class="section">
+    <section id="trendingMoviesHome" class="section">
         <div class="section__header">
             <h3 class="section__title">Trending</h3>
-            <button class="section__btn">
+            <button class="section__arrow">
                 <span class="material-symbols-outlined">
                     arrow_forward_ios
                 </span>
             </button>
         </div>
 
-        <div class="carousel">
-            <!-- <article class="carousel__item">
-                <div class="movie">
-                    <img 
-                        src="https://www.themoviedb.org/t/p/w220_and_h330_face/v28T5F1IygM8vXWZIycfNEm3xcL.jpg"
-                        class="movie__img"
-                        alt="title movie"
-                    />
-                </div>
-            </article> -->
+        <div class="section__carousel">
+            <!-- <div class="carousel__item">
+                    <article class="">
+                        <div class="movie__img-container">
+                            <img 
+                                src="https://www.themoviedb.org/t/p/w220_and_h330_face/v28T5F1IygM8vXWZIycfNEm3xcL.jpg"
+                                class="movie__img"
+                                alt="title movie"
+                            />
+                        </div>
+                        <p class="movie__title">Fall</p>
+                        <div class="movie__more-detail">
+                            <span class="movie__year">2022</span>
+                            <div class="movie__score">
+                                <span class="material-symbols-outlined material-symbols-outlined--primary">
+                                    star
+                                </span>
+                                <span>8.5</span>
+                            </div>
+                        </div>
+                    </article>
+                </div> -->
         </div>
     </section>
     
     <section id="categoriesMoviesHome" class="section">
         <div class="section__header">
             <h3 class="section__title">Categories</h3>
-            <button class="section__btn">
+            <button class="section__arrow">
                 <span class="material-symbols-outlined">
                     arrow_forward_ios
                 </span>
             </button>
         </div>
 
-        <ol class="carousel">
+        <ol class="section__carousel">
             <!-- <li class="carousel__item">
                 <a class="category" href="">Action</a>
             </li> -->
         </ol>
     </section>
 
-    <section class="section">
+    <section id="genericList" class="section">
         <div class="section__header">
             <h3 class="section__title">List</h3>
-            <button class="section__btn">
+            <button class="section__arrow">
                 <span class="material-symbols-outlined">
                     arrow_forward_ios
                 </span>
             </button>
         </div>
 
-        <div class="grid">
+        <div class="section__grid">
             <article class="">
-                <div class="movie">
+                <div class="movie__img-container">
                     <img 
                         src="https://www.themoviedb.org/t/p/w220_and_h330_face/v28T5F1IygM8vXWZIycfNEm3xcL.jpg"
                         class="movie__img"
                         alt="title movie"
                     />
                 </div>
-                <div class="movie__detail">
-                    <p>Fall</p>
+                <p class="movie__title">Fall</p>
+                <div class="movie__more-detail">
+                    <span class="movie__year">2022</span>
+                    <span class="movie__score">
+                        <span class="material-symbols-outlined material-symbols-outlined--primary">
+                            star
+                        </span>
+                        8.5
+                    </span>
+                </div>
+            </article>
+            <article class="">
+                <div class="movie__img-container">
+                    <img 
+                        src="https://www.themoviedb.org/t/p/w220_and_h330_face/v28T5F1IygM8vXWZIycfNEm3xcL.jpg"
+                        class="movie__img"
+                        alt="title movie"
+                    />
+                </div>
+                <p class="movie__title">Fall</p>
+                <div class="movie__more-detail">
+                    <span class="movie__year">2022</span>
                     <div class="movie__score">
                         <span class="material-symbols-outlined material-symbols-outlined--primary">
                             star
@@ -123,33 +156,16 @@
                 </div>
             </article>
             <article class="">
-                <div class="movie">
+                <div class="movie__img-container">
                     <img 
                         src="https://www.themoviedb.org/t/p/w220_and_h330_face/v28T5F1IygM8vXWZIycfNEm3xcL.jpg"
                         class="movie__img"
                         alt="title movie"
                     />
                 </div>
-                <div class="movie__detail">
-                    <p>Fall</p>
-                    <div class="movie__score">
-                        <span class="material-symbols-outlined material-symbols-outlined--primary">
-                            star
-                        </span>
-                        <span>8.5</span>
-                    </div>
-                </div>
-            </article>
-            <article class="">
-                <div class="movie">
-                    <img 
-                        src="https://www.themoviedb.org/t/p/w220_and_h330_face/v28T5F1IygM8vXWZIycfNEm3xcL.jpg"
-                        class="movie__img"
-                        alt="title movie"
-                    />
-                </div>
-                <div class="movie__detail">
-                    <p>Fall</p>
+                <p class="movie__title">Fall</p>
+                <div class="movie__more-detail">
+                    <span class="movie__year">2022</span>
                     <div class="movie__score">
                         <span class="material-symbols-outlined material-symbols-outlined--primary">
                             star
@@ -161,7 +177,7 @@
         </div>
     </section>
     
-    <!-- Detail View -->
+    <!-- Movie Detail View - Pendiente -->
     <section class="inactive">
         <div class="hero__img hero__img--detailView">
             <div class="hero__text">
