@@ -14,24 +14,24 @@
     <link rel="stylesheet" href="./styles/app.css">
 </head>
 <body>
-    <header id="header" class="header header--detailView">
+    <header id="header" class="header">
         <div class="header__container">
-            <div class="header__arrow ">
+            <div class="header__arrow inactive">
                 <span class="material-symbols-outlined material-symbols-outlined--semibold">
                     arrow_back
                 </span>
             </div>
             
-            <a href="" class="header__logo inactive">
+            <a href="" class="header__logo">
                 <span class="material-symbols-outlined material-symbols-outlined--semibold  material-symbols-outlined--primary">movie_filter</span>
                 <span>WebMovies</span>
             </a>
             
-            <div class="header__icon header__icon--user inactive">
+            <div class="header__icon header__icon--user">
                 <img src="https://picsum.photos/30" alt="">
             </div>
             
-            <form id="searchForm" class="header__searchForm inactive">
+            <form id="searchForm" class="header__searchForm">
                 <div class="search__container">
                     <span class="material-symbols-outlined">search</span>
                     <input class="search__input" type="text" placeholder="Search">
@@ -45,7 +45,7 @@
         </div>
     </header>
 
-    <section id="heroHome" class="hero inactive">
+    <section id="heroHome" class="hero section">
         <div class="hero__img"></div>
         <div class="hero__content">
             <h2 class="hero__title">Fall</h2>
@@ -54,10 +54,10 @@
         </div>
     </section>
 
-    <section id="trendingMoviesHome" class="section inactive">
+    <section id="trendingMoviesHome" class="section">
         <div class="section__header">
             <h3 class="section__title">Trending</h3>
-            <button class="section__arrow">
+            <button id="trendingBtn" class="section__arrow">
                 <span class="material-symbols-outlined">
                     arrow_forward_ios
                 </span>
@@ -89,7 +89,7 @@
         </div>
     </section>
     
-    <section id="categoriesMoviesHome" class="section inactive">
+    <section id="categoriesHome" class="section">
         <div class="section__header">
             <h3 class="section__title">Categories</h3>
             <button class="section__arrow">
@@ -106,14 +106,9 @@
         </ol>
     </section>
 
-    <section id="genericList" class="section inactive">
+    <section id="genericList" class="section section--list-container">
         <div class="section__header">
             <h3 class="section__title">List</h3>
-            <button class="section__arrow">
-                <span class="material-symbols-outlined">
-                    arrow_forward_ios
-                </span>
-            </button>
         </div>
 
         <div class="section__grid">
@@ -178,8 +173,8 @@
     </section>
     
     <!-- Movie Detail View -->
-    <section id="movieDetail">
-        <section id="heroDetail" class="hero hero--detailView">
+    <section id="movieDetail" class="inactive">
+        <section id="heroDetail" class="hero hero--detailView section">
             <div class="hero__img"></div>
                 <div class="hero__content hero__content--detailView">
                     <div class="hero__tags">
@@ -361,7 +356,7 @@
         </section>
     </section>
 
-    <section id="footer__msg">
+    <section id="footerMsg">
         <p class="footer__author">
             Made with love by 
             <a href="https://github.com/isaaknico">@isaaknico</a>
@@ -409,6 +404,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./src/secrets.js"></script>
+    <script src="./src/node.js"></script>
     <script src="./src/main.js"></script>
     <script src="./src/navigation.js"></script>
 </body>

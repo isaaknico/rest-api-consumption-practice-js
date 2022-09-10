@@ -17,7 +17,7 @@ async function getTrendingMoviesHome () {
     movies.forEach( movie => {
         const movieYear = new Date(movie.release_date).getFullYear();
 
-        const carousel = document.querySelector('#trendingMoviesHome .section__carousel');
+        const sectionCarousel = document.querySelector('#trendingMoviesHome .section__carousel');
 
         const carouselItem = document.createElement('div');
         carouselItem.classList.add('carousel__item');
@@ -65,7 +65,7 @@ async function getTrendingMoviesHome () {
         element.appendChild(moreDetailContainer);
 
         carouselItem.appendChild(element);
-        carousel.appendChild(carouselItem);
+        sectionCarousel.appendChild(carouselItem);
     });
 }
 
@@ -74,7 +74,7 @@ async function getCategoriesMoviesHome () {
     const categories = data.genres;
 
     categories.forEach( element => {
-        const carousel = document.querySelector('#categoriesMoviesHome .section__carousel');
+        const sectionCarousel = document.querySelector('#categoriesHome .section__carousel');
 
         const carouselItem = document.createElement('li');
         carouselItem.classList.add('carousel__item');
@@ -86,6 +86,6 @@ async function getCategoriesMoviesHome () {
         
         category.appendChild(categoryName);
         carouselItem.appendChild(category);
-        carousel.appendChild(carouselItem);
+        sectionCarousel.appendChild(carouselItem);
     })
 }
