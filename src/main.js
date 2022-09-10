@@ -14,6 +14,8 @@ async function getTrendingMoviesHome () {
 
     console.log(movies);
 
+    trendingMoviesCarousel.innerHTML = '';
+
     movies.forEach( movie => {
         const movieYear = new Date(movie.release_date).getFullYear();
 
@@ -65,7 +67,7 @@ async function getTrendingMoviesHome () {
         element.appendChild(moreDetailContainer);
 
         carouselItem.appendChild(element);
-        sectionCarousel.appendChild(carouselItem);
+        trendingMoviesCarousel.appendChild(carouselItem);
     });
 }
 
@@ -73,8 +75,9 @@ async function getCategoriesMoviesHome () {
     const { data } = await api('genre/movie/list');
     const categories = data.genres;
 
+    categoriesCarousel.innerHTML = '';
+
     categories.forEach( element => {
-        const sectionCarousel = document.querySelector('#categoriesHome .section__carousel');
 
         const carouselItem = document.createElement('li');
         carouselItem.classList.add('carousel__item');
@@ -86,6 +89,6 @@ async function getCategoriesMoviesHome () {
         
         category.appendChild(categoryName);
         carouselItem.appendChild(category);
-        sectionCarousel.appendChild(carouselItem);
+        categoriesCarousel.appendChild(carouselItem);
     })
 }
