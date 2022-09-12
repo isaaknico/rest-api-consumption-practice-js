@@ -8,23 +8,16 @@ const api = axios.create({ // Instancia de axios
     },
 });
 
-async function getTrendingMoviesHome () {
-    const { data } = await api('trending/movie/day');
-    const movies = data.results;
+// Utils
 
-    console.log(movies);
+function getAndRenderMoviePosters (array, container) {
+    container.innerHTML = '';
 
-    trendingMoviesCarousel.innerHTML = '';
-
-    movies.forEach( movie => {
+    array.forEach( movie => {
         const movieYear = new Date(movie.release_date).getFullYear();
 
-        const sectionCarousel = document.querySelector('#trendingMoviesHome .section__carousel');
-
-        const carouselItem = document.createElement('div');
-        carouselItem.classList.add('carousel__item');
-
-        const element = document.createElement('article');
+        const article = document.createElement('article');
+        article.classList.add('carousel__item');
 
         const imgContainer = document.createElement('div');
         imgContainer.classList.add('movie__img-container');
@@ -61,34 +54,64 @@ async function getTrendingMoviesHome () {
         score.appendChild(scoreValue);
         moreDetailContainer.appendChild(score);
         imgContainer.appendChild(img);
-        element.appendChild(imgContainer);
+        article.appendChild(imgContainer);
         title.appendChild(titleValue);
-        element.appendChild(title);
-        element.appendChild(moreDetailContainer);
+        article.appendChild(title);
+        article.appendChild(moreDetailContainer);
 
-        carouselItem.appendChild(element);
-        trendingMoviesCarousel.appendChild(carouselItem);
+        container.appendChild(article);
     });
 }
 
-async function getCategoriesMoviesHome () {
-    const { data } = await api('genre/movie/list');
-    const categories = data.genres;
+function getAndRenderCategories (array, container) {
+    container.innerHTML = '';
 
-    categoriesCarousel.innerHTML = '';
-
-    categories.forEach( element => {
+    array.forEach( element => {
 
         const carouselItem = document.createElement('li');
         carouselItem.classList.add('carousel__item');
 
         const category = document.createElement('a');
         category.classList.add('category');
+        category.addEventListener('click', () => {
+            const name = element.name.replace(' ', '-');
+            location.hash = `#category=${ element.id }-${ name }`;
+        });
 
         const categoryName = document.createTextNode(element.name);
         
         category.appendChild(categoryName);
         carouselItem.appendChild(category);
-        categoriesCarousel.appendChild(carouselItem);
+        container.appendChild(carouselItem);
     })
+}
+
+// Llamados a la API
+
+async function getTrendingMoviesHome () {
+    const { data } = await api('trending/movie/day');
+    const movies = data.results;
+
+    console.log(movies);
+
+    getAndRenderMoviePosters(movies, trendingMoviesCarousel);
+}
+
+async function getCategoriesMoviesHome () {
+    const { data } = await api('genre/movie/list');
+    const categories = data.genres;
+
+    getAndRenderCategories(categories, categoriesCarousel);
+}
+
+async function getMoviesByCategory (id) {
+    const { data } = await api('/discover/movie', {
+        params: {
+            with_genres: id,
+        }
+    });
+
+    const movies = data.results;
+
+    getAndRenderMoviePosters(movies, sectionGrid);
 }

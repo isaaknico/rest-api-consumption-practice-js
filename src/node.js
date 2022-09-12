@@ -42,7 +42,7 @@ const heroTitle = document.querySelector('.hero__title');
 const heroDescription = document.querySelector('.hero__description');
 const heroBtn = document.querySelector('.hero__btn');
 
-const sectionTitle = document.querySelector('.section__title');
+const sectionTitle = document.querySelector('#genericList .section__title');
 const sectionText = document.querySelector('.section__text');
 const trendingBtn = document.querySelector('#trendingBtn');
 
