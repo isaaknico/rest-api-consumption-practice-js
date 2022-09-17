@@ -323,10 +323,19 @@ a {
     height: 30px;
 }
 
+.hero__runtime::after {
+    content: 'm';
+}
+
 .movie__score {
     display: flex;
     justify-content: center;
     align-items: flex-end;
+}
+
+.movie__categories {
+    display: flex;
+    justify-content: space-between;
 }
 
 .category {

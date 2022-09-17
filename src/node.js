@@ -24,8 +24,8 @@ const categoriesCarousel = document.querySelector('#categoriesHome .section__car
 const sectionGrid = document.querySelector('.section__grid');
 const movieImgContainer = document.querySelector('.movie__img-container');
 const movieMoreDetailContainer = document.querySelector('.movie__more-deatiol');
-const castMovieDetail = document.querySelector('#castMovieDetail');
-const relateMoviesDetail = document.querySelector('#relatedMoviesDetail');
+const castMovieDetailCarousel = document.querySelector('#castMovieDetail .section__carousel');
+const relatedMoviesDetailCarousel = document.querySelector('#relatedMoviesDetail .section__carousel');
 const navbarContainer = document.querySelector('.navbar__container');
 const navbarList = document.querySelector('.navbar__list');
 
@@ -54,6 +54,14 @@ const movieYear = document.querySelector('.movie__year');
 const movieScore = document.querySelector('.movie__score');
 
 const category = document.querySelector('.category');
+
+const movieDetailTitle = document.querySelector('#movieDetail .hero__title');
+const movieDetailImg = document.querySelector('#movieDetail .hero__img');
+const movieDetailYear = document.querySelector('#movieDetail .hero__year');
+const movieDetailRuntime = document.querySelector('#movieDetail .hero__runtime');
+const movieDetailScore = document.querySelector('#movieDetail .movie__score');
+const movieDetailCategoriesList = document.querySelector('#movieDetail .movie__categories');
+const movieOverview = document.querySelector('#movieOverview');
 
 const footerAuthor = document.querySelector('.footer__author');
 

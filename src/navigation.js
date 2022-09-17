@@ -11,7 +11,7 @@ trendingBtn.addEventListener('click', () => {
 
 headerArrow.addEventListener('click', () => {
     // Valida si al regresar saldrá de la app
-    if (document.domain !== 'localhost') {
+    if (document.domain !== '127.0.0.1') {
         location.hash = '#home';
     } else {
         history.back();
@@ -31,6 +31,8 @@ function navigator () {
         searchPage();
     } else if (location.hash.startsWith('#movie=')) {
         movieDetailPage();
+        relatedMoviesDetailCarousel.scrollTo(0, 0);
+        castMovieDetailCarousel.scrollTo(0,0);
     } else if (location.hash.startsWith('#category=')) {
         categoryPage();
     } else {
@@ -105,6 +107,11 @@ function movieDetailPage () {
 
     genericListSection.classList.add('inactive');
     movieDetailSection.classList.remove('inactive');
+    heroTagsContainer.classList.add('inactive');
+
+    // Ejemplo: location.hash = '#movie=762968'
+    const [_, movieId] = location.hash.split('='); // ['#search', '762968']
+    getMovieById(movieId);
 }
 
 function categoryPage () {

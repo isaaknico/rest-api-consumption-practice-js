@@ -18,6 +18,9 @@ function getAndRenderMoviePosters (array, container) {
 
         const article = document.createElement('article');
         article.classList.add('carousel__item');
+        article.addEventListener('click', () => {
+            location.hash = '#movie=' + movie.id;
+        });
 
         const imgContainer = document.createElement('div');
         imgContainer.classList.add('movie__img-container');
@@ -86,6 +89,49 @@ function getAndRenderCategories (array, container) {
     })
 }
 
+function getAndRenderCast (array, container) {
+    container.innerHTML = '';
+
+    array.forEach( cast => {
+
+        const article = document.createElement('article');
+        article.classList.add('carousel__item');
+        // article.addEventListener('click', () => {
+        //    location.hash = '#movie=' + movie.id;
+        // });
+
+        const imgContainer = document.createElement('div');
+        imgContainer.classList.add('cast__img-container');
+
+        const img = document.createElement('img');
+        img.classList.add('movie__img');
+        img.setAttribute('alt', cast.name);
+        img.setAttribute('src', 'https://image.tmdb.org/t/p/w500' + cast.profile_path);
+
+        const nameContainer = document.createElement('div');
+        nameContainer.classList.add('cast__name-container');
+
+        const name = document.createElement('span');
+        // name.classList.add('movie__year');
+        const nameValue = document.createTextNode(cast.name);
+
+        const character = document.createElement('span');
+        character.classList.add('cast__character');
+        const characterValue = document.createTextNode(cast.character);
+
+        
+        name.appendChild(nameValue);
+        character.appendChild(characterValue);
+        nameContainer.appendChild(name);
+        nameContainer.appendChild(character);
+        imgContainer.appendChild(img);
+        article.appendChild(imgContainer);
+        article.appendChild(nameContainer);
+
+        container.appendChild(article);
+    });
+}
+
 // Llamados a la API
 
 async function getTrendingMoviesHome () {
@@ -102,6 +148,25 @@ async function getCategoriesMoviesHome () {
     const categories = data.genres;
 
     getAndRenderCategories(categories, categoriesCarousel);
+}
+
+async function getMovieById (id) {
+    const { data: movie } = await api('/movie/' + id); // Axios recibe obj data y se renombra como movie.
+    const movieYear = new Date(movie.release_date).getFullYear();
+
+    movieDetailTitle.textContent = movie.title; 
+    movieDetailImg.style.background = `url(https://www.themoviedb.org/t/p/w780${ movie.backdrop_path })`;
+    movieDetailImg.style.backgroundSize = 'cover';
+    movieDetailImg.style.backgroundPosition = 'center';
+    movieDetailImg.style.backgroundRepeat = 'no-repeat';
+    movieDetailYear.textContent = movieYear;
+    movieDetailRuntime.textContent = movie.runtime;
+    movieDetailScore.textContent = movie.vote_average.toFixed(1);
+    getAndRenderCategories(movie.genres, movieDetailCategoriesList);
+    movieOverview.textContent = movie.overview;
+
+    getRelatedMoviesById(id);
+    getCastMovieById(id);
 }
 
 async function getMoviesByCategory (id) {
@@ -135,4 +200,18 @@ async function getTrendingMovies () {
     console.log(movies);
 
     getAndRenderMoviePosters(movies, sectionGrid);
+}
+
+async function getRelatedMoviesById (id) {
+    const { data } = await api(`/movie/${id}/similar`);
+    const relatedMovies = data.results;
+
+    getAndRenderMoviePosters(relatedMovies, relatedMoviesDetailCarousel);
+}
+
+async function getCastMovieById (id) {
+    const { data } = await api(`/movie/${id}/credits`);
+    const castf = data.cast;
+
+    getAndRenderCast(castf, castMovieDetailCarousel);
 }
