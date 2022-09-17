@@ -1,6 +1,8 @@
 // Botones
 searchBtn.addEventListener('click', () => {
-    location.hash = '#search=';
+    searchInputValue = searchInput.value.trim();
+    const value = searchInputValue.split(" ").join("-");
+    location.hash = '#search=' + value;
 });
 
 trendingBtn.addEventListener('click', () => {
@@ -8,7 +10,12 @@ trendingBtn.addEventListener('click', () => {
 });
 
 headerArrow.addEventListener('click', () => {
-    location.hash = '#home';
+    // Valida si al regresar saldrá de la app
+    if (document.domain !== 'localhost') {
+        location.hash = '#home';
+    } else {
+        history.back();
+    }
 });
 
 // Navegación
@@ -52,6 +59,10 @@ function trendsPage () {
     genericListSection.classList.remove('inactive');
     genericListSection.classList.remove('section--list-search-container');
     movieDetailSection.classList.add('inactive');
+
+    sectionTitle.innerHTML = 'TRENDS';
+
+    getTrendingMovies();
 }
 
 function searchPage () {
@@ -72,6 +83,10 @@ function searchPage () {
     genericListSection.classList.remove('inactive');
     genericListSection.classList.add('section--list-search-container');
     movieDetailSection.classList.add('inactive');
+
+    // Ejemplo: location.hash = '#search=smile'
+    const [_, query] = location.hash.split('='); // ['#search', 'smile']
+    getMoviesBySearch(query);
 }
 
 function movieDetailPage () {
@@ -111,7 +126,7 @@ function categoryPage () {
     genericListSection.classList.remove('section--list-search-container');
     movieDetailSection.classList.add('inactive');
 
-    // Obtiene id y nombre de la categoria seleccionada
+    // Obtiene id y nombre de categoria a partir del hash (El hash viene de obtener y listar las categorias en main.js)
     // Ejemplo: location.hash = '#category=12-TV Movie'
     const [_, categoryData] = location.hash.split('='); // ['#category', '12-TV-Movie' ]
     const [categoryId, ...rest] = categoryData.split('-'); // ['12', 'TV', 'Movie]
