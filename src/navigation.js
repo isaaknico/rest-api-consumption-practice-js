@@ -18,6 +18,16 @@ headerArrow.addEventListener('click', () => {
     }
 });
 
+prevBtn.addEventListener('click', () => {
+    const slideWidth = slidesContainerHome.clientWidth; //slide.clientWidth
+    slidesContainerHome.scrollLeft -= slideWidth;
+});
+
+nextBtn.addEventListener('click', () => {
+    const slideWidth = slidesContainerHome.clientWidth;
+    slidesContainerHome.scrollLeft += slideWidth;
+});
+
 // Navegación
 window.addEventListener('DOMContentLoaded', navigator, false); // Llama a funcion al cargar la página
 window.addEventListener('hashchange', navigator, false);
@@ -100,7 +110,7 @@ function movieDetailPage () {
     headerIcon.classList.add('inactive');
     searchFormSection.classList.add('inactive');
     
-    heroHomeSection.classList.add('inactive');
+    sliderWrapperHome.classList.add('inactive');
     // heroImg.style.background = ''; // Limpia img de hero cuando no estemos 
     trendingMoviesHomeSection.classList.add('inactive');
     categoriesHomeSection.classList.add('inactive');
@@ -152,15 +162,17 @@ function homePage () {
     headerIcon.classList.remove('inactive');
     searchFormSection.classList.remove('inactive');
 
-    heroHomeSection.classList.remove('inactive');
-    heroHomeSection.classList.remove('hero--detailView');
+    sliderWrapperHome.classList.remove('inactive');
+    sliderWrapperHome.classList.remove('hero--detailView');
     heroImg.style.background = ''; // Limpia img de hero cuando no estemos en movieDetail
+
     trendingMoviesHomeSection.classList.remove('inactive');
     categoriesHomeSection.classList.remove('inactive');
 
     genericListSection.classList.add('inactive');
     movieDetailSection.classList.add('inactive');
 
+    getNowPlayingMoviesHome('US');
     getTrendingMoviesHome();
     getCategoriesMoviesHome();
 }

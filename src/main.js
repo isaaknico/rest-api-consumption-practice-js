@@ -10,6 +10,53 @@ const api = axios.create({ // Instancia de axios
 
 // Utils
 
+function getAndRenderSlides (array, container) {
+    container.innerHTML = '';
+
+    array.forEach( movie => {
+        const slideItem = document.createElement('li');
+        slideItem.classList.add('slide');
+        slideItem.addEventListener('click', () => {
+            location.hash = '#movie=' + movie.id;
+        });
+
+        const img = document.createElement('div');
+        img.classList.add('slide__img');
+        img.style.background ='url(https://image.tmdb.org/t/p/w780' + movie.backdrop_path+')';
+        img.style.backgroundSize = 'cover';
+        img.style.backgroundPosition = 'center';
+        img.style.backgroundRepeat = 'no-repeat';
+
+        const content = document.createElement('div');
+        content.classList.add('slide__content');
+
+        const title = document.createElement('h2');
+        title.classList.add('hero__title');
+        title.classList.add('hero__title--ellipsis');
+        const titleValue = document.createTextNode(movie.title);
+        const description = document.createElement('p');
+        description.classList.add('hero__description')
+        const descriptionValue = document.createTextNode(movie.overview);
+
+        const btn = document.createElement('button');
+        btn.classList.add('hero__btn');
+        const btnValue = document.createTextNode('Now Playing');
+
+        btn.appendChild(btnValue);
+        description.appendChild(descriptionValue);
+        title.appendChild(titleValue);
+
+        content.appendChild(title);
+        content.appendChild(description);
+        content.appendChild(btn);
+
+        slideItem.appendChild(img);
+        slideItem.appendChild(content);
+
+        container.appendChild(slideItem);
+    });
+}
+
 function getAndRenderMoviePosters (array, container) {
     container.innerHTML = '';
 
@@ -134,11 +181,21 @@ function getAndRenderCast (array, container) {
 
 // Llamados a la API
 
+async function getNowPlayingMoviesHome (region) {
+    const { data } = await api('/movie/now_playing/', {
+        params: {
+            region,
+        }
+    });
+
+    const movies = data.results;
+
+   getAndRenderSlides(movies, slidesContainerHome);
+}
+
 async function getTrendingMoviesHome () {
     const { data } = await api('trending/movie/day');
     const movies = data.results;
-
-    console.log(movies);
 
     getAndRenderMoviePosters(movies, trendingMoviesCarousel);
 }

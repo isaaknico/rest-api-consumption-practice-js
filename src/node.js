@@ -1,5 +1,10 @@
+/**
+ * Note: No incluir elems generados por js
+ */
+
 // Sections
 const headerSection = document.querySelector('#header');
+const sliderWrapperHome = document.querySelector('#sliderWrapperHome');
 const heroHomeSection = document.querySelector('#heroHome');
 const heroDetailSection = document.querySelector('#heroDetail');
 const searchFormSection = document.querySelector('#searchForm');
@@ -14,6 +19,7 @@ const footer = document.querySelector('#footer');
 // Lists & Containers
 const headerContainer = document.querySelector('.header__container');
 const searchFormContainer = document.querySelector('.search__container');
+const slidesContainerHome = document.querySelector('#slides-container');
 const heroContent = document.querySelector('.hero__content');
 const heroTagsContainer = document.querySelector('.hero__tags');
 const heroDataContainer = document.querySelector('.hero__data');
@@ -36,6 +42,10 @@ const headerIcon = document.querySelector('.header__icon');
 
 const searchInput = document.querySelector('.search__input');
 const searchBtn = document.querySelector('.search__btn');
+
+const slide = document.querySelector(".slide");
+const prevBtn = document.getElementById("slide-arrow-prev");
+const nextBtn = document.getElementById("slide-arrow-next");
 
 const heroImg = document.querySelector('.hero__img');
 const heroTitle = document.querySelector('.hero__title');
