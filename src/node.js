@@ -4,7 +4,7 @@
 
 // Sections
 const headerSection = document.querySelector('#header');
-const sliderWrapperHome = document.querySelector('#sliderWrapperHome');
+const sliderHomeSection = document.querySelector('#sliderWrapperHome');
 const heroHomeSection = document.querySelector('#heroHome');
 const heroDetailSection = document.querySelector('#heroDetail');
 const searchFormSection = document.querySelector('#searchForm');
@@ -25,6 +25,7 @@ const heroTagsContainer = document.querySelector('.hero__tags');
 const heroDataContainer = document.querySelector('.hero__data');
 const heroCategories = document.querySelector('.hero__categories');
 const sectionHeader = document.querySelector('.section__header');
+const castSectionHeader = document.querySelector('#castMovieDetail .section__header');
 const trendingMoviesCarousel = document.querySelector('#trendingMoviesHome .section__carousel');
 const categoriesCarousel = document.querySelector('#categoriesHome .section__carousel');
 const sectionGrid = document.querySelector('.section__grid');
@@ -55,6 +56,7 @@ const heroBtn = document.querySelector('.hero__btn');
 const sectionTitle = document.querySelector('#genericList .section__title');
 const sectionText = document.querySelector('.section__text');
 const trendingBtn = document.querySelector('#trendingBtn');
+const categoriesBtn = document.querySelector('#categoriesBtn');
 
 const carouselItem = document.querySelector('.carousel__item');
 
@@ -72,8 +74,13 @@ const movieDetailRuntime = document.querySelector('#movieDetail .hero__runtime')
 const movieDetailScore = document.querySelector('#movieDetail .movie__score');
 const movieDetailCategoriesList = document.querySelector('#movieDetail .movie__categories');
 const movieOverview = document.querySelector('#movieOverview');
+const castMovieDetailBtn = document.querySelector('#cast-btn');
 
 const footerAuthor = document.querySelector('.footer__author');
 
 const navbar = document.querySelector('.navbar');
 const navbarItem = document.querySelector('.navbar__item');
+
+const homeNavbarBtn = document.querySelector('#homeNavbarBtn');
+const exploreNavbarBtn = document.querySelector('#exploreNavbarBtn');
+const searchNavbarBtn = document.querySelector('#searchNavbarBtn');

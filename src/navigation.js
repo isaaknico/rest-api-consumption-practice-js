@@ -1,6 +1,6 @@
 // Botones
 searchBtn.addEventListener('click', () => {
-    searchInputValue = searchInput.value.trim();
+    const searchInputValue = searchInput.value.trim();
     const value = searchInputValue.split(" ").join("-");
     location.hash = '#search=' + value;
 });
@@ -9,13 +9,36 @@ trendingBtn.addEventListener('click', () => {
     location.hash = '#trends';
 });
 
+categoriesBtn.addEventListener('click', () => {
+    location.hash = '#categories';
+});
+
 headerArrow.addEventListener('click', () => {
     // Valida si al regresar saldrá de la app
     if (document.domain !== '127.0.0.1') {
         location.hash = '#home';
     } else {
+        console.log(history.back);
         history.back();
     }
+});
+
+homeNavbarBtn.addEventListener('click', () => {
+    location.hash = '#home';
+});
+
+exploreNavbarBtn.addEventListener('click', () => {
+    location.hash = '#trends';
+});
+
+searchNavbarBtn.addEventListener('click', () => {
+    location.hash = '#search=';
+});
+
+castMovieDetailBtn.addEventListener('click', () => {
+    // Ejemplo: location.hash = '#movie=762968'
+    const [_, movieId] = location.hash.split('='); // ['#movie', '762968']
+    location.hash = '#cast=' + movieId;
 });
 
 prevBtn.addEventListener('click', () => {
@@ -43,6 +66,10 @@ function navigator () {
         movieDetailPage();
         relatedMoviesDetailCarousel.scrollTo(0, 0);
         castMovieDetailCarousel.scrollTo(0,0);
+    } else if (location.hash.startsWith('#cast=')) {
+        castPage();
+    } else if (location.hash.startsWith('#categories')) {
+        categoriesPage();
     } else if (location.hash.startsWith('#category=')) {
         categoryPage();
     } else {
@@ -62,8 +89,8 @@ function trendsPage () {
     headerIcon.classList.add('inactive');
     searchFormSection.classList.add('inactive');
 
-    heroHomeSection.classList.add('inactive');
-    heroHomeSection.classList.remove('hero--detailView');
+    sliderHomeSection.classList.add('inactive');
+    sliderHomeSection.classList.remove('hero--detailView');
     
     trendingMoviesHomeSection.classList.add('inactive');
     categoriesHomeSection.classList.add('inactive');
@@ -86,18 +113,21 @@ function searchPage () {
     headerIcon.classList.add('inactive');
     searchFormSection.classList.remove('inactive');
 
-    heroHomeSection.classList.add('inactive');
-    heroHomeSection.classList.remove('hero--detailView');
+    sliderHomeSection.classList.add('inactive');
+    sliderHomeSection.classList.remove('hero--detailView');
     
     trendingMoviesHomeSection.classList.add('inactive');
     categoriesHomeSection.classList.add('inactive');
 
     genericListSection.classList.remove('inactive');
     genericListSection.classList.add('section--list-search-container');
+    sectionGrid.innerHTML = 'Aun no has buscado nada.';
     movieDetailSection.classList.add('inactive');
 
     // Ejemplo: location.hash = '#search=smile'
     const [_, query] = location.hash.split('='); // ['#search', 'smile']
+    
+    sectionTitle.innerHTML = 'Search: ' + query;
     getMoviesBySearch(query);
 }
 
@@ -110,7 +140,7 @@ function movieDetailPage () {
     headerIcon.classList.add('inactive');
     searchFormSection.classList.add('inactive');
     
-    sliderWrapperHome.classList.add('inactive');
+    sliderHomeSection.classList.add('inactive');
     // heroImg.style.background = ''; // Limpia img de hero cuando no estemos 
     trendingMoviesHomeSection.classList.add('inactive');
     categoriesHomeSection.classList.add('inactive');
@@ -120,8 +150,58 @@ function movieDetailPage () {
     heroTagsContainer.classList.add('inactive');
 
     // Ejemplo: location.hash = '#movie=762968'
-    const [_, movieId] = location.hash.split('='); // ['#search', '762968']
+    const [_, movieId] = location.hash.split('='); // ['#movie', '762968']
     getMovieById(movieId);
+}
+
+function castPage () {
+    console.log('CAST');
+
+    headerSection.classList.add('header--detailView');
+    headerArrow.classList.remove('inactive');
+    headerLogo.classList.add('inactive');
+    headerIcon.classList.add('inactive');
+    searchFormSection.classList.add('inactive');
+
+    sliderHomeSection.classList.add('inactive');
+    sliderHomeSection.classList.remove('hero--detailView');
+    
+    trendingMoviesHomeSection.classList.add('inactive');
+    categoriesHomeSection.classList.add('inactive');
+
+    genericListSection.classList.remove('inactive');
+    genericListSection.classList.remove('section--list-search-container');
+    movieDetailSection.classList.add('inactive');
+
+    sectionTitle.innerHTML = 'CAST';
+
+    // Ejemplo: location.hash = '#cast=762968'
+    const [_, movieId] = location.hash.split('='); // ['#cast', '762968']
+    getCastMovieById(movieId);
+}
+
+function categoriesPage () {
+    console.log('CATEGORIES');
+
+    headerSection.classList.add('header--detailView');
+    headerArrow.classList.remove('inactive');
+    headerLogo.classList.add('inactive');
+    headerIcon.classList.add('inactive');
+    searchFormSection.classList.add('inactive');
+
+    sliderHomeSection.classList.add('inactive');
+    sliderHomeSection.classList.remove('hero--detailView');
+    
+    trendingMoviesHomeSection.classList.add('inactive');
+    categoriesHomeSection.classList.add('inactive');
+
+    genericListSection.classList.remove('inactive');
+    genericListSection.classList.remove('section--list-search-container');
+    movieDetailSection.classList.add('inactive');
+
+    sectionTitle.innerHTML = 'CATEGORIES';
+
+    getCategoriesMovies();
 }
 
 function categoryPage () {
@@ -133,8 +213,8 @@ function categoryPage () {
     headerIcon.classList.add('inactive');
     searchFormSection.classList.add('inactive');
 
-    heroHomeSection.classList.add('inactive');
-    heroHomeSection.classList.remove('hero--detailView');
+    sliderHomeSection.classList.add('inactive');
+    sliderHomeSection.classList.remove('hero--detailView');
     
     trendingMoviesHomeSection.classList.add('inactive');
     categoriesHomeSection.classList.add('inactive');
@@ -162,8 +242,8 @@ function homePage () {
     headerIcon.classList.remove('inactive');
     searchFormSection.classList.remove('inactive');
 
-    sliderWrapperHome.classList.remove('inactive');
-    sliderWrapperHome.classList.remove('hero--detailView');
+    sliderHomeSection.classList.remove('inactive');
+    sliderHomeSection.classList.remove('hero--detailView');
     heroImg.style.background = ''; // Limpia img de hero cuando no estemos en movieDetail
 
     trendingMoviesHomeSection.classList.remove('inactive');

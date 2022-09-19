@@ -532,6 +532,8 @@ a {
     align-items: center;
     font-size: 1.4rem;
     color: var(--white);
+    border: 0;
+    background-color: transparent;
 }
 
 /* Navigation */

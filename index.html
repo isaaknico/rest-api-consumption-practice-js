@@ -45,6 +45,7 @@
         </div>
     </header>
 
+    <!-- Home View -->
     <section id="sliderWrapperHome" class="hero section slider-wrapper">
         <button id="slide-arrow-prev" class="slide-arrow">
             <span class="material-symbols-outlined">
@@ -57,31 +58,30 @@
                 </span>
         </button>
         <ul id="slides-container" class="slides-container">
-            <!--
-            <li class="slide">
-                <div class="slide__img"></div>
-                <div class="slide__content">
-                    <h2 class="hero__title hero__title--ellipsis">Fall</h2>
-                    <p class="hero__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem illo  vero iusto...</p>
-                    <button class="hero__btn">Now playing</button>
-                </div>
-            </li> 
-            <li class="slide">
-                <div class="slide__img"></div>
-                <div class="slide__content">
-                    <h2 class="hero__title hero__title--ellipsis">Fall</h2>
-                    <p class="hero__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem illo  vero iusto...</p>
-                    <button class="hero__btn">See more</button>
-                </div>
-            </li> 
-            <li class="slide">
-                <div class="slide__img"></div>
-                <div class="slide__content">
-                    <h2 class="hero__title hero__title--ellipsis">Fall</h2>
-                    <p class="hero__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem illo  vero iusto...</p>
-                    <button class="hero__btn">See more</button>
-                </div>
-            </li> -->
+            <!--<li class="slide">
+                    <div class="slide__img"></div>
+                    <div class="slide__content">
+                        <h2 class="hero__title hero__title--ellipsis">Fall</h2>
+                        <p class="hero__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem illo  vero iusto...</p>
+                        <button class="hero__btn">Now playing</button>
+                    </div>
+                </li>
+                <li class="slide">
+                    <div class="slide__img" style="background: url(https://image.tmdb.org/t/p/w780/2RSirqZG949GuRwN38MYCIGG4Od.jpg) center center / cover no-repeat;"></div>
+                    <div class="slide__content">
+                        <h2 class="hero__title hero__title--ellipsis">Fall</h2>
+                        <p class="hero__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem illo  vero iusto...</p>
+                        <button class="hero__btn">Now Playing</button>
+                    </div>
+                </li>
+                <li class="slide">
+                    <div class="slide__img" style="background: url(https://image.tmdb.org/t/p/w780/1n7ZGr6WeDOW4rFiQKmFel8baWH.jpg) center center / cover no-repeat;"></div>
+                    <div class="slide__content">
+                        <h2 class="hero__title hero__title--ellipsis">Beast</h2>
+                        <p class="hero__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem illo  vero iusto...</p>
+                        <button class="hero__btn">Now Playing</button>
+                    </div>
+                </li> -->
         </ul>
     </section>
 
@@ -123,7 +123,7 @@
     <section id="categoriesHome" class="section">
         <div class="section__header">
             <h3 class="section__title">Categories</h3>
-            <button class="section__arrow">
+            <button id="categoriesBtn" class="section__arrow">
                 <span class="material-symbols-outlined">
                     arrow_forward_ios
                 </span>
@@ -137,69 +137,26 @@
         </ol>
     </section>
 
+    <!-- Generic List View -->
     <section id="genericList" class="section section--list-container">
         <div class="section__header">
             <h3 class="section__title">List</h3>
         </div>
 
         <div class="section__grid">
-            <article class="">
-                <div class="movie__img-container">
-                    <img 
-                        src="https://www.themoviedb.org/t/p/w220_and_h330_face/v28T5F1IygM8vXWZIycfNEm3xcL.jpg"
-                        class="movie__img"
-                        alt="title movie"
-                    />
-                </div>
-                <p class="movie__title">Fall</p>
-                <div class="movie__more-detail">
-                    <span class="movie__year">2022</span>
-                    <span class="movie__score">
-                        <span class="material-symbols-outlined material-symbols-outlined--primary">
-                            star
-                        </span>
-                        8.5
-                    </span>
-                </div>
-            </article>
-            <article class="">
-                <div class="movie__img-container">
-                    <img 
-                        src="https://www.themoviedb.org/t/p/w220_and_h330_face/v28T5F1IygM8vXWZIycfNEm3xcL.jpg"
-                        class="movie__img"
-                        alt="title movie"
-                    />
-                </div>
-                <p class="movie__title">Fall</p>
-                <div class="movie__more-detail">
-                    <span class="movie__year">2022</span>
-                    <div class="movie__score">
-                        <span class="material-symbols-outlined material-symbols-outlined--primary">
-                            star
-                        </span>
-                        <span>8.5</span>
+            <!--<article class="carousel__item">
+                    <div class="movie__img-container">
+                        <img class="movie__img" alt="Thor: Love and Thunder" src="https://image.tmdb.org/t/p/w300/pIkRyD18kl4FhoCNQuWxWu5cBLM.jpg">
                     </div>
-                </div>
-            </article>
-            <article class="">
-                <div class="movie__img-container">
-                    <img 
-                        src="https://www.themoviedb.org/t/p/w220_and_h330_face/v28T5F1IygM8vXWZIycfNEm3xcL.jpg"
-                        class="movie__img"
-                        alt="title movie"
-                    />
-                </div>
-                <p class="movie__title">Fall</p>
-                <div class="movie__more-detail">
-                    <span class="movie__year">2022</span>
-                    <div class="movie__score">
-                        <span class="material-symbols-outlined material-symbols-outlined--primary">
-                            star
+                    <p class="movie__title">Thor: Love and Thunder</p>
+                    <div class="movie__more-detail">
+                        <span class="movie__year">2022</span>
+                        <span class="movie_score">
+                            <span class="material-symbols-outlined material-symbols-outlined--primary">star</span>
+                            6.8
                         </span>
-                        <span>8.5</span>
                     </div>
-                </div>
-            </article>
+                </article>-->
         </div>
     </section>
     
@@ -249,7 +206,7 @@
         <section id="castMovieDetail" class="section ">
             <div class="section__header">
                 <h3 class="section__title">Cast</h3>
-                <button class="section__arrow">
+                <button id="cast-btn" class="section__arrow">
                     <span class="material-symbols-outlined">
                         arrow_forward_ios
                     </span>
@@ -311,11 +268,11 @@
         <section id="relatedMoviesDetail" class="section ">
             <div class="section__header">
                 <h3 class="section__title">Related</h3>
-                <button class="section__arrow">
+                <!-- <button class="section__arrow">
                     <span class="material-symbols-outlined">
                         arrow_forward_ios
                     </span>
-                </button>
+                </button> -->
             </div>
     
             <div class="section__carousel">
@@ -404,7 +361,7 @@
             <nav class="navbar">
                 <ol class="navbar__list">
                     <li>
-                        <a class="navbar__item" href="">
+                        <a id="homeNavbarBtn" class="navbar__item">
                             <span class="material-symbols-outlined material-symbols-outlined--semibold">
                                 home
                             </span>
@@ -413,20 +370,20 @@
                     </li>
                     
                     <li>
-                        <a class="navbar__item" href="">
+                        <button id="exploreNavbarBtn" class="navbar__item">
                             <span class="material-symbols-outlined material-symbols-outlined--semibold">
                                 menu
                             </span>
                             Explore
-                        </a>
+                        </button>
                     </li>
                     <li>
-                        <a class="navbar__item" href="">
+                        <button id="searchNavbarBtn" class="navbar__item">
                             <span class="material-symbols-outlined material-symbols-outlined--semibold">
                                 search
                             </span>
                             Search
-                        </a>
+                        </button>
                     </li>
                 </ol>
             </nav>

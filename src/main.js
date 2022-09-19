@@ -222,8 +222,8 @@ async function getMovieById (id) {
     getAndRenderCategories(movie.genres, movieDetailCategoriesList);
     movieOverview.textContent = movie.overview;
 
+    getCastMovieByIdDetail(id);
     getRelatedMoviesById(id);
-    getCastMovieById(id);
 }
 
 async function getMoviesByCategory (id) {
@@ -239,25 +239,33 @@ async function getMoviesByCategory (id) {
 }
 
 async function getMoviesBySearch (query) {
-    const { data } = await api('search/movie', {
-        params: {
-            query, // query: query, El parametro se llama igual que el nombre del parametro.
-        },
-    });
-    
-    const movies = data.results;
+    if (query) {
+        const { data } = await api('search/movie', {
+            params: {
+                query, // query: query, El parametro se llama igual que el nombre del parametro.
+            },
+        });
 
-    getAndRenderMoviePosters(movies, sectionGrid);
+        const movies = data.results;
+
+        getAndRenderMoviePosters(movies, sectionGrid);
+    }
+    
 }
 
 async function getTrendingMovies () {
     const { data } = await api('trending/movie/day');
     const movies = data.results;
 
-    console.log(movies);
-
     getAndRenderMoviePosters(movies, sectionGrid);
 }
+
+async function getCategoriesMovies () {
+    const { data } = await api('genre/movie/list');
+    const categories = data.genres;
+
+    getAndRenderCategories(categories, sectionGrid);
+} 
 
 async function getRelatedMoviesById (id) {
     const { data } = await api(`/movie/${id}/similar`);
@@ -266,9 +274,16 @@ async function getRelatedMoviesById (id) {
     getAndRenderMoviePosters(relatedMovies, relatedMoviesDetailCarousel);
 }
 
-async function getCastMovieById (id) {
+async function getCastMovieByIdDetail (id) {
     const { data } = await api(`/movie/${id}/credits`);
     const castf = data.cast;
 
     getAndRenderCast(castf, castMovieDetailCarousel);
+}
+
+async function getCastMovieById (id) {
+    const { data } = await api(`/movie/${id}/credits`);
+    const castf = data.cast;
+
+    getAndRenderCast(castf, sectionGrid);
 }
