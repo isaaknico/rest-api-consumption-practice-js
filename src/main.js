@@ -22,7 +22,7 @@ function getAndRenderSlides (array, container) {
 
         const img = document.createElement('div');
         img.classList.add('slide__img');
-        img.style.background ='url(https://image.tmdb.org/t/p/w780' + movie.backdrop_path+')';
+        img.style.background ='url(https://image.tmdb.org/t/p/w780' + movie.poster_path+')';
         img.style.backgroundSize = 'cover';
         img.style.backgroundPosition = 'center';
         img.style.backgroundRepeat = 'no-repeat';
@@ -39,16 +39,17 @@ function getAndRenderSlides (array, container) {
         const descriptionValue = document.createTextNode(movie.overview);
 
         const btn = document.createElement('button');
-        btn.classList.add('hero__btn');
+        btn.classList.add('hero__tag');
         const btnValue = document.createTextNode('Now Playing');
 
         btn.appendChild(btnValue);
         description.appendChild(descriptionValue);
         title.appendChild(titleValue);
 
+        
+        content.appendChild(btn);
         content.appendChild(title);
         content.appendChild(description);
-        content.appendChild(btn);
 
         slideItem.appendChild(img);
         slideItem.appendChild(content);
@@ -88,21 +89,26 @@ function getAndRenderMoviePosters (array, container) {
         year.classList.add('movie__year');
         const yearValue = document.createTextNode(movieYear);
 
+        const scoreContainer = document.createElement('div');
+        scoreContainer.classList.add('movie__score-container');
+
+        const iconStar = document.createElement('span');
+        iconStar.classList.add('material-symbols-outlined');
+        iconStar.classList.add('icon-score');
+        const iconStarValue = document.createTextNode('star');
+
         const score = document.createElement('span');
         score.classList.add('movie_score');
         const scoreValue = document.createTextNode(movie.vote_average.toFixed(1));
 
-        const iconStar = document.createElement('span');
-        iconStar.classList.add('material-symbols-outlined');
-        iconStar.classList.add('material-symbols-outlined--primary');
-        const iconStarValue = document.createTextNode('star');
-
+        
+        score.appendChild(scoreValue);
         iconStar.appendChild(iconStarValue);
-        score.appendChild(iconStar);
+        scoreContainer.appendChild(iconStar);
+        scoreContainer.appendChild(score);
         year.appendChild(yearValue);
         moreDetailContainer.appendChild(year);
-        score.appendChild(scoreValue);
-        moreDetailContainer.appendChild(score);
+        moreDetailContainer.appendChild(scoreContainer);
         imgContainer.appendChild(img);
         article.appendChild(imgContainer);
         title.appendChild(titleValue);

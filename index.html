@@ -24,7 +24,7 @@
             
             <a href="" class="header__logo">
                 <span class="material-symbols-outlined material-symbols-outlined--semibold  material-symbols-outlined--primary">movie_filter</span>
-                <span>WebMovies</span>
+                <span class="logo--text">WebMovies</span>
             </a>
             
             <div class="header__icon header__icon--user">
@@ -33,11 +33,12 @@
             
             <form id="searchForm" class="header__searchForm">
                 <div class="search__container">
-                    <span class="material-symbols-outlined">search</span>
+                    
                     <input class="search__input" type="text" placeholder="Search">
+                    <span class="search-icon material-symbols-outlined">search</span>
                     <button class="search__btn">
                         <span class="material-symbols-outlined">
-                            mic
+                            send
                         </span>
                     </button>
                 </div>
@@ -49,12 +50,12 @@
     <section id="sliderWrapperHome" class="hero section slider-wrapper">
         <button id="slide-arrow-prev" class="slide-arrow">
             <span class="material-symbols-outlined">
-                navigate_before
+                arrow_back_ios
                 </span>
         </button>
         <button id="slide-arrow-next" class="slide-arrow">
             <span class="material-symbols-outlined">
-                navigate_next
+                arrow_forward_ios
                 </span>
         </button>
         <ul id="slides-container" class="slides-container">
@@ -170,20 +171,20 @@
                         <p>Season 1</p>
                     </div>
 
-                    <h2 class="hero__title">Fall</h2>
+                    <h2 class="hero__title hero__title--detail">Fall</h2>
                     
                     <div class="hero__data">
                         <p class="hero__year">2020</p>
                         <p class="hero__runtime">1h 50</p>
-                        <span class="movie__score">
-                            <span class="material-symbols-outlined">
+                        <div class="movie__score-container">
+                            <span class="icon-score material-symbols-outlined">
                                 star
                             </span>
-                            8.5
-                        </span>
+                            <span class="movie__score">8.5</span>
+                        </div>
                     </div>
                     
-                    <div class="movie__categories">
+                    <div class="section__carousel movie__categories">
                         <div class="category" href="">Action</div>
                         <div class="category" href="">Comedy</div>
                         <div class="category" href="">Drama</div>
@@ -193,7 +194,7 @@
 
         <div id="actionsDetail" class="section ">
             <div class="section__container">
-                <button class="hero__btn">
+                <button class="hero__btn inactive">
                     <span class="material-symbols-outlined">
                         play_circle
                     </span>
