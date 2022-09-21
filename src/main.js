@@ -1,7 +1,7 @@
 const api = axios.create({ // Instancia de axios
-    baseURL: 'https://api.themoviedb.org/3/',
+    baseURL: 'https://api.themoviedb.org/3',
     headers: {
-        'Content-Type': 'application/json;charset=utf-8',
+        'Content-Type': 'application/json; charset=utf-8',
     },
     params: {
         'api_key': API_KEY,
@@ -188,10 +188,10 @@ function getAndRenderCast (array, container) {
 // Llamados a la API
 
 async function getNowPlayingMoviesHome (region) {
-    const { data } = await api('/movie/now_playing/', {
+    const { data } = await api('/movie/now_playing', {
         params: {
             region,
-        }
+        },
     });
 
     const movies = data.results;
@@ -200,14 +200,14 @@ async function getNowPlayingMoviesHome (region) {
 }
 
 async function getTrendingMoviesHome () {
-    const { data } = await api('trending/movie/day');
+    const { data } = await api('/trending/movie/day');
     const movies = data.results;
 
     getAndRenderMoviePosters(movies, trendingMoviesCarousel);
 }
 
 async function getCategoriesMoviesHome () {
-    const { data } = await api('genre/movie/list');
+    const { data } = await api('/genre/movie/list');
     const categories = data.genres;
 
     getAndRenderCategories(categories, categoriesCarousel);
@@ -246,7 +246,7 @@ async function getMoviesByCategory (id) {
 
 async function getMoviesBySearch (query) {
     if (query) {
-        const { data } = await api('search/movie', {
+        const { data } = await api('/search/movie', {
             params: {
                 query, // query: query, El parametro se llama igual que el nombre del parametro.
             },
@@ -260,14 +260,14 @@ async function getMoviesBySearch (query) {
 }
 
 async function getTrendingMovies () {
-    const { data } = await api('trending/movie/day');
+    const { data } = await api('/trending/movie/day');
     const movies = data.results;
 
     getAndRenderMoviePosters(movies, sectionGrid);
 }
 
 async function getCategoriesMovies () {
-    const { data } = await api('genre/movie/list');
+    const { data } = await api('/genre/movie/list');
     const categories = data.genres;
 
     getAndRenderCategories(categories, sectionGrid);
