@@ -101,6 +101,7 @@ function trendsPage () {
 
     sectionTitle.innerHTML = 'TRENDS';
 
+    renderSkeletons(moviePosterTemplate, sectionGrid, 4);
     getTrendingMovies();
 }
 
@@ -126,9 +127,12 @@ function searchPage () {
 
     // Ejemplo: location.hash = '#search=smile'
     const [_, query] = location.hash.split('='); // ['#search', 'smile']
-    
     sectionTitle.innerHTML = 'Search: ' + query;
-    getMoviesBySearch(query);
+
+    if (query) {
+        renderSkeletons(moviePosterTemplate, sectionGrid, 4);
+        getMoviesBySearch(query);
+    }
 }
 
 function movieDetailPage () {
@@ -141,17 +145,27 @@ function movieDetailPage () {
     searchFormSection.classList.add('inactive');
     
     sliderHomeSection.classList.add('inactive');
-    // heroImg.style.background = ''; // Limpia img de hero cuando no estemos 
+    //movieDetailImg.style.background = ''; // Limpia img de hero cuando no estemos 
+    //movieDetailTitle.textContent = '';
+    //movieOverview.textContent = '';
     trendingMoviesHomeSection.classList.add('inactive');
     categoriesHomeSection.classList.add('inactive');
 
     genericListSection.classList.add('inactive');
     movieDetailSection.classList.remove('inactive');
-    heroTagsContainer.classList.add('inactive');
-
+    
     // Ejemplo: location.hash = '#movie=762968'
     const [_, movieId] = location.hash.split('='); // ['#movie', '762968']
+
+    renderSkeletons(movieDetailTemplate, heroMovieDetail, 1);
+    renderSkeletons(movieMoreDetailTemplate, actionsDetailContainer, 1);
     getMovieById(movieId);
+
+    renderSkeletons(moviePosterTemplate, relatedMoviesDetailCarousel, 3);
+    getCastMovieByIdDetail(movieId);
+
+    renderSkeletons(castTemplate, castMovieDetailCarousel, 4);
+    getRelatedMoviesById(movieId);
 }
 
 function castPage () {
@@ -177,6 +191,8 @@ function castPage () {
 
     // Ejemplo: location.hash = '#cast=762968'
     const [_, movieId] = location.hash.split('='); // ['#cast', '762968']
+
+    renderSkeletons(castTemplate, sectionGrid, 6);
     getCastMovieById(movieId);
 }
 
@@ -201,6 +217,7 @@ function categoriesPage () {
 
     sectionTitle.innerHTML = 'CATEGORIES';
 
+    renderSkeletons(categoryTemplate, sectionGrid, 10);
     getCategoriesMovies();
 }
 
@@ -230,6 +247,7 @@ function categoryPage () {
 
     sectionTitle.innerHTML = rest.join(' '); // eliminar %20(espacios) o '_' de strings
 
+    renderSkeletons(moviePosterTemplate, sectionGrid, 4);
     getMoviesByCategory(categoryId);
 }
 
@@ -244,7 +262,7 @@ function homePage () {
 
     sliderHomeSection.classList.remove('inactive');
     sliderHomeSection.classList.remove('hero--detailView');
-    heroImg.style.background = ''; // Limpia img de hero cuando no estemos en movieDetail
+    //movieDetailImg.style.background = ''; // Limpia img de hero cuando no estemos en movieDetail
 
     trendingMoviesHomeSection.classList.remove('inactive');
     categoriesHomeSection.classList.remove('inactive');
@@ -252,7 +270,12 @@ function homePage () {
     genericListSection.classList.add('inactive');
     movieDetailSection.classList.add('inactive');
 
+    renderSkeletons(slideTemplate, slidesContainerHome, 3);
     getNowPlayingMoviesHome('US');
+
+    renderSkeletons(moviePosterTemplate, trendingMoviesCarousel, 3);
     getTrendingMoviesHome();
+
+    renderSkeletons(categoryTemplate, categoriesCarousel, 3);
     getCategoriesMoviesHome();
 }

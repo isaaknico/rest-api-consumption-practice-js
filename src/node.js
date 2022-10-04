@@ -13,6 +13,7 @@ const categoriesHomeSection = document.querySelector('#categoriesHome');
 const genericListSection = document.querySelector('#genericList');
 const movieDetailSection = document.querySelector('#movieDetail');
 const actionsDetail = document.querySelector('#actionsDetail');
+const actionsDetailContainer = document.querySelector('#actionsDetail .section__container');
 const footerMsg = document.querySelector('#footerMsg');
 const footer = document.querySelector('#footer');
 
@@ -25,12 +26,12 @@ const heroTagsContainer = document.querySelector('.hero__tags');
 const heroDataContainer = document.querySelector('.hero__data');
 const heroCategories = document.querySelector('.hero__categories');
 const sectionHeader = document.querySelector('.section__header');
+const heroMovieDetail = document.querySelector('#movieDetail #heroDetail');
 const castSectionHeader = document.querySelector('#castMovieDetail .section__header');
 const trendingMoviesCarousel = document.querySelector('#trendingMoviesHome .section__carousel');
 const categoriesCarousel = document.querySelector('#categoriesHome .section__carousel');
 const sectionGrid = document.querySelector('.section__grid');
 const movieImgContainer = document.querySelector('.movie__img-container');
-const movieMoreDetailContainer = document.querySelector('.movie__more-deatiol');
 const castMovieDetailCarousel = document.querySelector('#castMovieDetail .section__carousel');
 const relatedMoviesDetailCarousel = document.querySelector('#relatedMoviesDetail .section__carousel');
 const navbarContainer = document.querySelector('.navbar__container');
@@ -84,3 +85,11 @@ const navbarItem = document.querySelector('.navbar__item');
 const homeNavbarBtn = document.querySelector('#homeNavbarBtn');
 const exploreNavbarBtn = document.querySelector('#exploreNavbarBtn');
 const searchNavbarBtn = document.querySelector('#searchNavbarBtn');
+
+// Templates
+const slideTemplate = document.querySelector('#slide-template');
+const moviePosterTemplate = document.querySelector('#poster-template');
+const categoryTemplate = document.querySelector('#category-template');
+const castTemplate = document.querySelector('#cast-template'); 
+const movieDetailTemplate = document.querySelector('#movieDetail-template');
+const movieMoreDetailTemplate = document.querySelector('#movie-more-detail-template');

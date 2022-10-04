@@ -8,9 +8,10 @@
     <title>Movies Web</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <!--
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200..300,0..1,0" /> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL@48,300,0" />
     <link rel="stylesheet" href="./styles/app.css">
 </head>
 <body>
@@ -23,7 +24,9 @@
             </div>
             
             <a href="" class="header__logo">
-                <span class="material-symbols-outlined material-symbols-outlined--semibold  material-symbols-outlined--primary">movie_filter</span>
+                <span class="material-symbols-outlined material-symbols-outlined--semibold material-symbols-outlined--primary">
+                    movie_filter
+                </span>
                 <span class="logo--text">WebMovies</span>
             </a>
             
@@ -59,33 +62,28 @@
                 </span>
         </button>
         <ul id="slides-container" class="slides-container">
-            <!--<li class="slide">
-                    <div class="slide__img"></div>
+            <!-- Full Slide 
+                <li id="slide" class="slide">
+                    <div id="slideImg" class="slide__img skeleton" 
+                        style="
+                            background: url("https://image.tmdb.org/t/p/w780/rugyJdeoJm7cSJL1q4jBpTNbxyU.jpg") 
+                            center 
+                            center / cover 
+                            no-repeat;">
+                    </div>
                     <div class="slide__content">
-                        <h2 class="hero__title hero__title--ellipsis">Fall</h2>
-                        <p class="hero__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem illo  vero iusto...</p>
-                        <button class="hero__btn">Now playing</button>
+                        <div id="slideTag" class="hero__tag">Now Playing</div>
+                        <h2 id="slideTitle" class="hero__title hero__title--ellipsis">Dragon Ball Super: Super Hero</h2>
+                        <span id="slideOverview" class="hero__description"> 
+                            The Red Ribbon Army, an evil organization that was once destroyed by Goku in...
+                        </span>   --- // Antes <p>, ahora <span> para poder contener divs de skeleton
                     </div>
                 </li>
-                <li class="slide">
-                    <div class="slide__img" style="background: url(https://image.tmdb.org/t/p/w780/2RSirqZG949GuRwN38MYCIGG4Od.jpg) center center / cover no-repeat;"></div>
-                    <div class="slide__content">
-                        <h2 class="hero__title hero__title--ellipsis">Fall</h2>
-                        <p class="hero__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem illo  vero iusto...</p>
-                        <button class="hero__btn">Now Playing</button>
-                    </div>
-                </li>
-                <li class="slide">
-                    <div class="slide__img" style="background: url(https://image.tmdb.org/t/p/w780/1n7ZGr6WeDOW4rFiQKmFel8baWH.jpg) center center / cover no-repeat;"></div>
-                    <div class="slide__content">
-                        <h2 class="hero__title hero__title--ellipsis">Beast</h2>
-                        <p class="hero__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem illo  vero iusto...</p>
-                        <button class="hero__btn">Now Playing</button>
-                    </div>
-                </li> -->
+            -->
         </ul>
     </section>
 
+    <!-- Home View - Trending movies section -->
     <section id="trendingMoviesHome" class="section">
         <div class="section__header">
             <h3 class="section__title">Trending</h3>
@@ -97,30 +95,30 @@
         </div>
 
         <div class="section__carousel">
-            <!-- <div class="carousel__item">
-                    <article class="">
-                        <div class="movie__img-container">
-                            <img 
-                                src="https://www.themoviedb.org/t/p/w220_and_h330_face/v28T5F1IygM8vXWZIycfNEm3xcL.jpg"
-                                class="movie__img"
-                                alt="title movie"
-                            />
+            <!-- Example Movie poster
+                <article id="moviePoster" class="carousel__item">
+                    <div class="movie__img-container">
+                        <img 
+                            id="trending-poster-img"
+                            class="movie__img skeleton" 
+                            alt="Jujutsu Kaisen 0" 
+                            src="https://image.tmdb.org/t/p/w300/yzkgx79vj1KsZBzxFBIsQBwBkPE.jpg"
+                        >
+                    </div>
+                    <p class="movie__title">Jujutsu Kaisen 0</p> --- // p
+                    <div class="movie__more-detail">
+                        <span id="trending-poster-year" class="movie__year">2021</span>
+                        <div class="movie__score-container">
+                            <span id="trending-poster-icon-score" class="material-symbols-outlined icon-score">star</span>
+                            <span id="trending-poster-score" class="movie_score">7.8</span>
                         </div>
-                        <p class="movie__title">Fall</p>
-                        <div class="movie__more-detail">
-                            <span class="movie__year">2022</span>
-                            <div class="movie__score">
-                                <span class="material-symbols-outlined material-symbols-outlined--primary">
-                                    star
-                                </span>
-                                <span>8.5</span>
-                            </div>
-                        </div>
-                    </article>
-                </div> -->
+                    </div>
+                </article>
+            -->
         </div>
     </section>
     
+    <!-- Home View - Categories section -->
     <section id="categoriesHome" class="section">
         <div class="section__header">
             <h3 class="section__title">Categories</h3>
@@ -131,10 +129,12 @@
             </button>
         </div>
 
-        <ol class="section__carousel">
-            <!-- <li class="carousel__item">
-                <a class="category" href="">Action</a>
-            </li> -->
+        <ol class="section__carousel section__carousel--categories">
+            <!-- Example Category 
+                <li class="carousel__item">
+                    <a class="category">Action</a>
+                </li> 
+            -->
         </ol>
     </section>
 
@@ -145,65 +145,121 @@
         </div>
 
         <div class="section__grid">
-            <!--<article class="carousel__item">
-                    <div class="movie__img-container">
-                        <img class="movie__img" alt="Thor: Love and Thunder" src="https://image.tmdb.org/t/p/w300/pIkRyD18kl4FhoCNQuWxWu5cBLM.jpg">
-                    </div>
-                    <p class="movie__title">Thor: Love and Thunder</p>
-                    <div class="movie__more-detail">
-                        <span class="movie__year">2022</span>
-                        <span class="movie_score">
-                            <span class="material-symbols-outlined material-symbols-outlined--primary">star</span>
-                            6.8
-                        </span>
-                    </div>
-                </article>-->
+            <!-- Can include Category, Poster or Cast Items -->
         </div>
     </section>
     
     <!-- Movie Detail View -->
     <section id="movieDetail" class="inactive">
+            
         <section id="heroDetail" class="hero hero--detailView section">
-            <div class="hero__img"></div>
+            <!-- Movie detail Skeleton Template-->
+            <template id="movieDetail-template">
+                <div id="movieDetailImg" class="movie__img hero__img skeleton"></div>
                 <div class="hero__content hero__content--detailView">
-                    <div class="hero__tags">
+                    <div class="hero__tags inactive">
                         <p>New</p> <span class="hero__tag-separator"> - </span>
                         <p>Season 1</p>
                     </div>
-
-                    <h2 class="hero__title hero__title--detail">Fall</h2>
-                    
+                    <h2 id="movieDetailTitle" class="movie__title hero__title hero__title--detail">
+                        <div class="skeleton skeleton__head-line skeleton__head-line--detailView"></div>
+                    </h2>
                     <div class="hero__data">
-                        <p class="hero__year">2020</p>
-                        <p class="hero__runtime">1h 50</p>
+                        <span id="movieDetailYear" class="movie__year hero__year">
+                            <div class="skeleton skeleton__text"></div>
+                        </span>
+                        <span id="movieDetailRuntime" class="movie__runtime hero__runtime">
+                            <div class="skeleton skeleton__text"></div>
+                        </span>
                         <div class="movie__score-container">
-                            <span class="icon-score material-symbols-outlined">
-                                star
+                            <span id="movieDetailIconScore" class="movie__icon-score icon-score material-symbols-outlined">
+                                <div class="skeleton skeleton__text"></div>
                             </span>
-                            <span class="movie__score">8.5</span>
+                            <span id="movieDetailScore" class="movie__score">
+                                <div class="skeleton skeleton__text"></div>
+                            </span>
                         </div>
                     </div>
-                    
-                    <div class="section__carousel movie__categories">
-                        <div class="category" href="">Action</div>
-                        <div class="category" href="">Comedy</div>
-                        <div class="category" href="">Drama</div>
+                    <div id="movieDetailCategories" class="movie__categories section__carousel section__carousel--categories">
+                        <li class="carousel__item">
+                            <a id="movieDetailCategory" class="movie__category category">
+                                <div class="skeleton skeleton__category"></div>
+                            </a>
+                        </li>
+                        <li class="carousel__item">
+                            <a id="movieDetailCategory" class="movie__category category">
+                                <div class="skeleton skeleton__category"></div>
+                            </a>
+                        </li>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </template>
 
+            <!-- Example Movie detail
+                <div id="movieDetailImg" class="movie__img hero__img skeleton" style="background: url(https://www.themoviedb.org/t/p/w780/dxihDyyA6RSAtLZog4l1MYdDqLD.jpg&quot;) center center / cover no-repeat;"></div>
+                    <div class="hero__content hero__content--detailView">
+                        <div class="hero__tags inactive">
+                            <p>New</p> <span class="hero__tag-separator"> - </span>
+                            <p>Season 1</p>
+                        </div>
+
+                        <h2 id="movieDetailTitle" class="movie__title hero__title hero__title--detail">Vesper</h2>
+                        
+                        <div class="hero__data">
+                            <span id="movieDetailYear" class="movie__year hero__year">2022</span>
+                            <span id="movieDetailRuntime" class="movie__runtime hero__runtime">112 m</span>
+                            <div class="movie__score-container">
+                                <span id="movieDetailIconScore" class="movie__icon-score icon-score material-symbols-outlined">star</span>
+                                <span id="movieDetailScore" class="movie__score">6.8</span>
+                            </div>
+                        </div>
+                        
+                        <div id="movieDetailCategories" class="movie__categories section__carousel section__carousel--categories">
+                            <li class="carousel__item">
+                                <a id="category" class="category">Science Fiction</a>
+                            </li>
+                            <li class="carousel__item">
+                                <a id="category" class="category">Drama</a>
+                            </li>
+                            <li class="carousel__item">
+                                <a id="category" class="category">Adventure</a>
+                            </li>
+                        </div>
+                    </div>
+                </div>  
+            -->
+        </section>
+        
         <div id="actionsDetail" class="section ">
             <div class="section__container">
-                <button class="hero__btn inactive">
-                    <span class="material-symbols-outlined">
-                        play_circle
+                <!-- Movie More Detail Template -->
+                <template id="movie-more-detail-template">
+                    <!-- 
+                        <button class="hero__btn inactive">
+                            <span class="material-symbols-outlined">
+                                play_circle
+                            </span>
+                            Trailer
+                        </button> 
+                    -->
+                    <span class="movie__overview section__text">
+                        <div class="skeleton skeleton__text"></div>
+                        <div class="skeleton skeleton__text"></div>
+                        <div class="skeleton skeleton__text"></div>
                     </span>
-                    Trailer
-                </button>
-                <p id="movieOverview" class="section__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem illo ipsum  deserunt quo maxime! Repudiandae mollitia maxime tempora! Aperiam molestias libero sit deleniti, obcaecati ipsam minima....</p>    
+                </template>
+
+                <!-- Example Movie more detail 
+                    <span class="movie__overview section__text">
+                        After the collapse of Earth's ecosystem, Vesper, a 13-year-old girl struggling to survive with her paralyzed Father, 
+                        meets a mysterious Woman with a secret that forces Vesper to use her wits, 
+                        strength and bio-hacking abilities to fight for the possibility of a future.
+                    </span>
+                -->
             </div>
         </div>
-    
+
+        <!-- Cast of movie -->
         <section id="castMovieDetail" class="section ">
             <div class="section__header">
                 <h3 class="section__title">Cast</h3>
@@ -214,58 +270,25 @@
                 </button>
             </div>
     
-            <div class="section__carousel">
-                <div class="carousel__item">
-                    <article class="cast">
-                        <div class="cast__img-container">
-                            <img 
-                                src="https://www.themoviedb.org/t/p/w220_and_h330_face/v28T5F1IygM8vXWZIycfNEm3xcL.jpg"
-                                class="movie__img"
-                                alt="title movie"
-                            />
-                        </div>
-                        
-                        <div class="cast__name-container">
-                            <span>Actor</span>
-                            <span class="cast__character">Character</span>
-                        </div>
-                    </article>
-                </div>
-                <div class="carousel__item">
-                    <article class="cast">
-                        <div class="cast__img-container">
-                            <img 
-                                src="https://www.themoviedb.org/t/p/w220_and_h330_face/v28T5F1IygM8vXWZIycfNEm3xcL.jpg"
-                                class="movie__img"
-                                alt="title movie"
-                            />
-                        </div>
-                        
-                        <div class="cast__name-container">
-                            <span>Actor</span>
-                            <span class="cast__character">Character</span>
-                        </div>
-                    </article>
-                </div>
-                <div class="carousel__item">
-                    <article class="cast">
-                        <div class="cast__img-container">
-                            <img 
-                                src="https://www.themoviedb.org/t/p/w220_and_h330_face/v28T5F1IygM8vXWZIycfNEm3xcL.jpg"
-                                class="movie__img"
-                                alt="title movie"
-                            />
-                        </div>
-                        
-                        <div class="cast__name-container">
-                            <span>Actor</span>
-                            <span class="cast__character">Character</span>
-                        </div>
-                    </article>
-                </div>
+            <div class="section__carousel section__carousel--cast">
+                <!-- Example Cast item 
+                <article class="carousel__item">
+                    <div class="cast__img-container">
+                        <img 
+                            class="movie__img skeleton" 
+                            alt="" 
+                            src="https://image.tmdb.org/t/p/w500/l4LfB4vgYuXxte9JF4HcxQsqiOY.jpg"
+                        >
+                    </div>
+                    <div class="cast__name-container">
+                        <span class="cast__name">Alexis Manenti</span>
+                        <span class="cast__character">Sébastien</span>
+                    </div>
+                </article> -->
             </div>
         </section>
     
+        <!-- Related movies -->
         <section id="relatedMoviesDetail" class="section ">
             <div class="section__header">
                 <h3 class="section__title">Related</h3>
@@ -277,73 +300,91 @@
             </div>
     
             <div class="section__carousel">
-                <div class="carousel__item">
-                    <article>
-                        <div class="movie__img-container">
-                            <img 
-                                src="https://www.themoviedb.org/t/p/w220_and_h330_face/v28T5F1IygM8vXWZIycfNEm3xcL.jpg"
-                                class="movie__img"
-                                alt="title movie"
-                            />
-                        </div>
-                        <p class="movie__title">Fall</p>
-                        <div class="movie__more-detail">
-                            <span class="movie__year">2022</span>
-                            <div class="movie__score">
-                                <span class="material-symbols-outlined material-symbols-outlined--primary">
-                                    star
-                                </span>
-                                <span>8.5</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="carousel__item">
-                    <article>
-                        <div class="movie__img-container">
-                            <img 
-                                src="https://www.themoviedb.org/t/p/w220_and_h330_face/v28T5F1IygM8vXWZIycfNEm3xcL.jpg"
-                                class="movie__img"
-                                alt="title movie"
-                            />
-                        </div>
-                        <p class="movie__title">Fall</p>
-                        <div class="movie__more-detail">
-                            <span class="movie__year">2022</span>
-                            <div class="movie__score">
-                                <span class="material-symbols-outlined material-symbols-outlined--primary">
-                                    star
-                                </span>
-                                <span>8.5</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="carousel__item">
-                    <article>
-                        <div class="movie__img-container">
-                            <img 
-                                src="https://www.themoviedb.org/t/p/w220_and_h330_face/v28T5F1IygM8vXWZIycfNEm3xcL.jpg"
-                                class="movie__img"
-                                alt="title movie"
-                            />
-                        </div>
-                        <p class="movie__title">Fall</p>
-                        <div class="movie__more-detail">
-                            <span class="movie__year">2022</span>
-                            <div class="movie__score">
-                                <span class="material-symbols-outlined material-symbols-outlined--primary">
-                                    star
-                                </span>
-                                <span>8.5</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+                <!-- Include Posters -->
             </div>
         </section>
     </section>
+
+    <!-- Templates -->
+        <!-- Slide Skeleton Template-->
+        <template id="slide-template">
+            <li class="slide">
+                <div class="slide__img skeleton"></div>
+
+                <div class="slide__content">
+                    <div class="hero__tag">
+                        <div class="skeleton skeleton__tag"></div>
+                    </div>
+
+                    <h2 class="hero__title hero__title--ellipsis">
+                        <div class="skeleton skeleton__head-line skeleton__head-line--short"></div>
+                    </h2>
+
+                    <span class="hero__description">
+                        <div class="skeleton skeleton__text"></div>
+                        <div class="skeleton skeleton__text"></div>
+                    </span>
+                </div>
+            </li>
+        </template>
+
+        <!-- Category Skeleton Template -->
+        <template id="category-template">
+            <li class="carousel__item">
+                <a id="category" class="category">
+                    <div class="skeleton skeleton__category"></div>
+                </a>
+            </li>
+        </template>
+
+        <!-- Cast Skeleton Template -->
+        <template id="cast-template">
+            <article class="carousel__item">
+                <div class="cast__img-container">
+                    <img
+                        class="movie__img skeleton"
+                        alt=""
+                        src=""
+                    >
+                </div>
+                <div class="cast__name-container">
+                    <span class="cast__name">
+                        <div class="skeleton skeleton__text"></div>
+                    </span>
+                    <span class="cast__character">
+                        <div class="skeleton skeleton__text"></div>
+                    </span>
+                </div>
+            </article>
+        </template>
+
+        <!-- Movie poster Skeleton Template -->
+        <template id="poster-template">
+            <article class="carousel__item">
+                <div class="movie__img-container">
+                    <img
+                        class="movie__img skeleton"
+                        alt=""
+                        src="">
+                </div>
+                <span class="movie__title">
+                    <div class="skeleton skeleton__text"></div>
+                </span>
+                <div class="movie__more-detail">
+                    <span class="movie__year">
+                        <div class="skeleton skeleton__text"></div>
+                    </span>
+                    <div class="movie__score-container">
+                        <span class="material-symbols-outlined icon-score">
+                            <div class="skeleton skeleton__text"></div>
+                        </span>
+                        <span class="movie__score">
+                            <div class="skeleton skeleton__text"></div>
+                        </span>
+                    </div>
+                </div>
+            </article>
+        </template>
 
     <section id="footerMsg">
         <p class="footer__author">
