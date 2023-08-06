@@ -32,6 +32,7 @@ function getAndRenderSlides (array, container) {
 }
 
 function getAndRenderMoviePosters (array, container) {
+    container.style.gridTemplateColumns = 'repeat(2, 1fr)';
     container.innerHTML = '';
 
     array.forEach( movie => {
@@ -60,6 +61,8 @@ function getAndRenderCategories (array, container) {
             const name = element.name.replace(' ', '-');
             location.hash = `#category=${ element.id }-${ name }`;
         });
+        li.querySelector('.category').classList.remove('skeleton');
+        li.querySelector('.category').classList.remove('skeleton__category');
         li.querySelector('.category').textContent = element.name;
         container.append(li);
     });

@@ -122,7 +122,6 @@ function searchPage () {
 
     genericListSection.classList.remove('inactive');
     genericListSection.classList.add('section--list-search-container');
-    sectionGrid.innerHTML = 'Aun no has buscado nada.';
     movieDetailSection.classList.add('inactive');
 
     // Ejemplo: location.hash = '#search=smile'
@@ -133,6 +132,9 @@ function searchPage () {
         renderSkeletons(moviePosterTemplate, sectionGrid, 4);
         getMoviesBySearch(query);
     }
+    
+    sectionGrid.style.gridTemplateColumns = '1fr';
+    sectionGrid.innerHTML = 'You haven\'t done any search yet.';
 }
 
 function movieDetailPage () {

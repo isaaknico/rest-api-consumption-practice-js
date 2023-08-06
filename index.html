@@ -31,7 +31,7 @@
             </a>
             
             <div class="header__icon header__icon--user">
-                <img src="https://picsum.photos/30" alt="">
+                <img class="movie__img" src="https://picsum.photos/40" alt="">
             </div>
             
             <form id="searchForm" class="header__searchForm">
@@ -53,7 +53,7 @@
     <section id="sliderWrapperHome" class="hero section slider-wrapper">
         <button id="slide-arrow-prev" class="slide-arrow">
             <span class="material-symbols-outlined">
-                arrow_back_ios
+                arrow_back_ios_new
                 </span>
         </button>
         <button id="slide-arrow-next" class="slide-arrow">
@@ -182,13 +182,11 @@
                     </div>
                     <div id="movieDetailCategories" class="movie__categories section__carousel section__carousel--categories">
                         <li class="carousel__item">
-                            <a id="movieDetailCategory" class="movie__category category">
-                                <div class="skeleton skeleton__category"></div>
+                            <a id="movieDetailCategory" class="movie__category category skeleton skeleton__category">
                             </a>
                         </li>
                         <li class="carousel__item">
-                            <a id="movieDetailCategory" class="movie__category category">
-                                <div class="skeleton skeleton__category"></div>
+                            <a id="movieDetailCategory" class="movie__category category skeleton skeleton__category">
                             </a>
                         </li>
                     </div>
@@ -331,9 +329,7 @@
         <!-- Category Skeleton Template -->
         <template id="category-template">
             <li class="carousel__item">
-                <a id="category" class="category">
-                    <div class="skeleton skeleton__category"></div>
-                </a>
+                <a id="category" class="category skeleton skeleton__category"></a>
             </li>
         </template>
 
