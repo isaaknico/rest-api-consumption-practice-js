@@ -30,6 +30,38 @@
                 <span class="logo--text">WebMovies</span>
             </a>
             
+            <div class="navbar__container">
+                <nav class="navbar">
+                    <ol class="navbar__list">
+                        <li>
+                            <a id="homeNavbarBtn" class="navbar__item">
+                                <span class="material-symbols-outlined material-symbols-outlined--semibold">
+                                    home
+                                </span>
+                                <span class="item__text">Home</span>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <button id="exploreNavbarBtn" class="navbar__item">
+                                <span class="material-symbols-outlined material-symbols-outlined--semibold">
+                                    menu
+                                </span>
+                                <span class="item__text">Explore</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="searchNavbarBtn" class="navbar__item">
+                                <span class="material-symbols-outlined material-symbols-outlined--semibold">
+                                    search
+                                </span>
+                                <span class="item__text">Search</span>
+                            </button>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+
             <div class="header__icon header__icon--user">
                 <img class="movie__img" src="https://picsum.photos/40" alt="">
             </div>
@@ -119,7 +151,7 @@
     </section>
     
     <!-- Home View - Categories section -->
-    <section id="categoriesHome" class="section">
+    <section id="categoriesHome" class="section section--categories">
         <div class="section__header">
             <h3 class="section__title">Categories</h3>
             <button id="categoriesBtn" class="section__arrow">
@@ -258,7 +290,7 @@
         </div>
 
         <!-- Cast of movie -->
-        <section id="castMovieDetail" class="section ">
+        <section id="castMovieDetail" class="section section--cast">
             <div class="section__header">
                 <h3 class="section__title">Cast</h3>
                 <button id="cast-btn" class="section__arrow">
@@ -287,7 +319,7 @@
         </section>
     
         <!-- Related movies -->
-        <section id="relatedMoviesDetail" class="section ">
+        <section id="relatedMoviesDetail" class="section section--relateds">
             <div class="section__header">
                 <h3 class="section__title">Related</h3>
                 <!-- <button class="section__arrow">
@@ -394,38 +426,6 @@
     </section>
 
     <footer class="footer">
-        <div class="navbar__container">
-
-            <nav class="navbar">
-                <ol class="navbar__list">
-                    <li>
-                        <a id="homeNavbarBtn" class="navbar__item">
-                            <span class="material-symbols-outlined material-symbols-outlined--semibold">
-                                home
-                            </span>
-                            Home
-                        </a>
-                    </li>
-                    
-                    <li>
-                        <button id="exploreNavbarBtn" class="navbar__item">
-                            <span class="material-symbols-outlined material-symbols-outlined--semibold">
-                                menu
-                            </span>
-                            Explore
-                        </button>
-                    </li>
-                    <li>
-                        <button id="searchNavbarBtn" class="navbar__item">
-                            <span class="material-symbols-outlined material-symbols-outlined--semibold">
-                                search
-                            </span>
-                            Search
-                        </button>
-                    </li>
-                </ol>
-            </nav>
-        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
