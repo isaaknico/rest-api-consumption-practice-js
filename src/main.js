@@ -27,6 +27,8 @@ function getAndRenderSlides (array, container) {
         li.querySelector('.hero__tag').textContent = 'Now playing';
         li.querySelector('.hero__title').textContent = movie.title;
         li.querySelector('.hero__description').textContent = movie.overview;
+        li.querySelector('.hero__description').classList.remove('skeleton');
+        li.querySelector('.hero__description').classList.remove('skeleton__text');
         container.append(li);
     });
 }
@@ -139,6 +141,8 @@ async function getMovieById (id) {
     actionsDetailContainer.innerHTML = '';
     const movieMoreDetail = movieMoreDetailTemplate.content.cloneNode(true);
     movieMoreDetail.querySelector('.movie__overview').textContent = movie.overview;
+    movieMoreDetail.querySelector('.movie__overview').classList.remove('skeleton');
+    movieMoreDetail.querySelector('.movie__overview').classList.remove('skeleton__text');
     actionsDetailContainer.append(movieMoreDetail);
 } 
 

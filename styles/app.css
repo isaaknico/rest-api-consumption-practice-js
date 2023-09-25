@@ -337,6 +337,7 @@ a {
 
 .hero__description {
     width: 90%;
+    max-width: 70ch;
     margin-top: 4px;
     margin-bottom: 8px;
     font-size: 1.8rem;    
