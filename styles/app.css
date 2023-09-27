@@ -501,6 +501,7 @@ a {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    background-color: var(--gray);
 }
 
 .movie__more-detail, .movie__title {

@@ -44,7 +44,12 @@ function getAndRenderMoviePosters (array, container) {
         article.querySelector('.carousel__item').addEventListener('click', () => {
             location.hash = '#movie=' + movie.id;
         });
-        article.querySelector('.movie__img').src = 'https://image.tmdb.org/t/p/w300' + movie.poster_path;
+        const srcImg = movie.poster_path 
+            ? 'https://image.tmdb.org/t/p/w300' + movie.poster_path 
+            : 'https://www.svgrepo.com/show/370055/film.svg';
+        const img = article.querySelector('.movie__img');
+        img.src = srcImg;
+        img.addEventListener('load', () => img.classList.remove('skeleton'));
         article.querySelector('.movie__title').textContent = movie.title;
         article.querySelector('.movie__year').textContent = movieYear;
         article.querySelector('.icon-score').textContent = 'star';
@@ -75,8 +80,12 @@ function getAndRenderCast (array, container) {
 
     array.forEach( cast => {
         const article = castTemplate.content.cloneNode(true);
-
-        article.querySelector('.movie__img').src = 'https://image.tmdb.org/t/p/w500' + cast.profile_path;
+        const srcImg = cast.profile_path 
+            ? 'https://image.tmdb.org/t/p/w500' + cast.profile_path 
+            : 'https://www.svgrepo.com/show/458421/user-cicrle.svg';
+        const img = article.querySelector('.movie__img');
+        img.src = srcImg;
+        img.addEventListener('load', () => img.classList.remove('skeleton'));
         article.querySelector('.cast__name').textContent = cast.name;
         article.querySelector('.cast__character').textContent = cast.character;
         container.append(article);
