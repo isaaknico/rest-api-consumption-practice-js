@@ -135,10 +135,14 @@ async function getMovieById (id) {
 
     heroMovieDetail.innerHTML = '';
     const movieDetail = movieDetailTemplate.content.cloneNode(true);
-    movieDetail.querySelector('.movie__img').style.background =  `url(https://www.themoviedb.org/t/p/w780${ movie.backdrop_path })`;
-    movieDetail.querySelector('.movie__img').style.backgroundSize = 'cover';
-    movieDetail.querySelector('.movie__img').style.backgroundPosition = 'center';
-    movieDetail.querySelector('.movie__img').style.backgroundRepeat = 'no-repeat';
+    const srcImg = movie.backdrop_path
+        ? `https://www.themoviedb.org/t/p/w780${ movie.backdrop_path }`
+        : 'https://www.svgrepo.com/show/370055/film.svg';
+    const img = movieDetail.querySelector('.movie__img');
+    img.style.backgroundImage = `url(${ srcImg })`;
+    const cloneImg = new Image();
+    cloneImg.src = srcImg;
+    cloneImg.addEventListener('load', () => img.classList.remove('skeleton'));
     movieDetail.querySelector('.movie__title').textContent = movie.title;
     movieDetail.querySelector('.movie__year').textContent = movieYear;
     movieDetail.querySelector('.movie__runtime').textContent = movie.runtime + ' m';
