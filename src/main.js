@@ -51,9 +51,13 @@ function getAndRenderMoviePosters (array, container) {
         img.src = srcImg;
         img.addEventListener('load', () => img.classList.remove('skeleton'));
         article.querySelector('.movie__title').textContent = movie.title;
-        article.querySelector('.movie__year').textContent = movieYear;
+        article.querySelector('.movie__year').textContent = movieYear
+            ? movieYear
+            : 'NA';
         article.querySelector('.icon-score').textContent = 'star';
-        article.querySelector('.movie__score').textContent = movie.vote_average.toFixed(1);
+        article.querySelector('.movie__score').textContent = movie.vote_average
+            ? movie.vote_average.toFixed(1)
+            : 'NR';
         container.append(article);
     });
 }
@@ -131,7 +135,8 @@ async function getCategoriesMoviesHome () {
 
 async function getMovieById (id) {
     const { data: movie } = await api('/movie/' + id); // Axios recibe obj data y se renombra como movie.
-    const movieYear = new Date(movie.release_date).getFullYear();
+    const movieYear = new Date(movie.release_date).getFullYear()
+    console.log(movie);
 
     heroMovieDetail.innerHTML = '';
     const movieDetail = movieDetailTemplate.content.cloneNode(true);
@@ -144,10 +149,16 @@ async function getMovieById (id) {
     cloneImg.src = srcImg;
     cloneImg.addEventListener('load', () => img.classList.remove('skeleton'));
     movieDetail.querySelector('.movie__title').textContent = movie.title;
-    movieDetail.querySelector('.movie__year').textContent = movieYear;
-    movieDetail.querySelector('.movie__runtime').textContent = movie.runtime + ' m';
+    movieDetail.querySelector('.movie__year').textContent = movieYear
+        ? movieYear
+        : 'Not Available';
+    movieDetail.querySelector('.movie__runtime').textContent = movie.runtime
+        ? movie.runtime + ' m'
+        : 'Unknown';
     movieDetail.querySelector('.movie__icon-score').textContent = 'star';
-    movieDetail.querySelector('.movie__score').textContent = movie.vote_average.toFixed(1);
+    movieDetail.querySelector('.movie__score').textContent = movie.vote_average
+        ? movie.vote_average.toFixed(1)
+        : 'No Rating';
     getAndRenderCategories(movie.genres, movieDetail.querySelector('.movie__categories'));
     heroMovieDetail.append(movieDetail);
 
