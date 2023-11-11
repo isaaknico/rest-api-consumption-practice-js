@@ -20,10 +20,7 @@ function getAndRenderSlides (array, container) {
         li.querySelector('.slide').addEventListener('click', () => {
             location.hash = '#movie=' + movie.id;
         });
-        li.querySelector('.slide__img').style.background ='url(https://image.tmdb.org/t/p/w780' + movie.poster_path + ')';
-        li.querySelector('.slide__img').style.backgroundSize = 'cover';
-        li.querySelector('.slide__img').style.backgroundPosition = 'center';
-        li.querySelector('.slide__img').style.backgroundRepeat = 'no-repeat';
+        li.querySelector('.slide__img').style.backgroundImage ='url(https://image.tmdb.org/t/p/w780' + movie.backdrop_path + ')';
         li.querySelector('.hero__tag').textContent = 'Now playing';
         li.querySelector('.hero__title').textContent = movie.title;
         li.querySelector('.hero__description').textContent = movie.overview;

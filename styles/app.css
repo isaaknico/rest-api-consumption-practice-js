@@ -280,10 +280,10 @@ a {
     position: absolute;
     width: 100%;
     height: inherit;
-    /*background: url(https://www.themoviedb.org/t/p/original/1DBDwevWS8OhiT3wqqlW7KGPd6m.jpg);
+    /*background-image: url(https://www.themoviedb.org/t/p/original/1DBDwevWS8OhiT3wqqlW7KGPd6m.jpg);
     */
     background-size: cover;
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
 }
 
